@@ -1,0 +1,14 @@
+
+import cv2
+import numpy as np
+import cvlib as cv
+from PIL import Image
+from cvlib.object_detection import draw_bbox
+import matplotlib.pyplot as plt
+%matplotlib inline
+img = Image.open('img/b.jpg')
+img = np.array(img)
+bbox, label, conf = cv.detect_common_objects(img, model='yolov3')
+output_image = draw_bbox(img, bbox, label, conf)
+plt.imshow(output_image)
+<matplotlib.image.AxesImage at 0x2755a2e2dc0>
